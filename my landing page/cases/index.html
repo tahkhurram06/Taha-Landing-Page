@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Positivus</title>
+    <link rel="stylesheet" href="/styles.css">
+    
+    <style>
+        /* --- CASE STUDIES STYLES --- */
+
+        .featured-case {
+            display: flex;
+            background: #191a23;
+            color: #fff;
+            border-radius: 45px;
+            padding: 60px;
+            gap: 50px;
+            margin-top: 50px;
+            margin-bottom: 60px;
+            border: 1px solid #000;
+            align-items: center;
+        }
+
+        .case-info { flex: 1.2; }
+        .case-visual { flex: 0.8; width: 100%; }
+
+        .case-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid #b9ff66;
+            object-fit: cover;
+        }
+
+        .case-tag {
+            background: #b9ff66;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .featured-case h2 {
+            font-size: clamp(24px, 5vw, 32px); /* Fluid typography */
+            margin-bottom: 20px;
+        }
+
+        .case-metrics {
+            display: flex;
+            gap: 40px;
+            margin: 30px 0;
+            border-top: 1px solid #444;
+            padding-top: 30px;
+        }
+
+        .m-value {
+            display: block;
+            font-size: clamp(30px, 4vw, 40px);
+            font-weight: bold;
+            color: #b9ff66;
+        }
+
+        .m-label {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .case-link {
+            color: #b9ff66;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* --- GRID CENTERING FIX --- */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+            justify-items: center;
+        }
+
+        .case-card {
+            background: #a7babf;
+            border: 1px solid #000;
+            border-bottom: 6px solid #000;
+            border-radius: 30px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            transition: transform 0.3s ease;
+            margin-left: 0px;
+        }
+
+        .case-card:hover { transform: translateY(-5px); }
+
+        .case-card.dark { background: #191a23; color: #fff; }
+        .case-card.dark .case-tag { background: #fff; color: #000; }
+
+        .card-top h3 { margin-bottom: 15px; font-size: 24px; }
+
+        .result {
+            font-weight: bold;
+            color: #191a23;
+            background: #b9ff66;
+            padding: 5px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .case-card.dark .result { color: #000; }
+
+        /* --- NAVIGATION RESPONSIVENESS --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #000;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+/* Ensure the hamburger has relative positioning for the lines to move correctly */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out; /* Smooth transition is key */
+}
+
+/* --- THE "X" ANIMATION --- */
+
+/* Rotate the top line 45 degrees down */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+/* Hide the middle line */
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+/* Rotate the bottom line 45 degrees up */
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+        /* --- RESPONSIVE QUERIES --- */
+
+        @media (max-width: 992px) {
+            .featured-case {
+                flex-direction: column;
+                padding: 40px;
+                text-align: center;
+            }
+            .case-metrics {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide standard links on mobile */
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: #191a23;
+                width: 200px;
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 15px;
+                z-index: 100;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li a { color: #fff; }
+            .hamburger { display: flex; }
+            .quote-btn { display: none; } /* Hide button on tiny screens */
+
+            .featured-case {
+                border-radius: 25px;
+                padding: 30px 20px;
+            }
+            .case-metrics {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+            .case-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-container" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;">
+        <div class="nav-logo">
+            <a href="/index.html"><img src="/logo.png" alt="logo" class="logo-placeholder" style="height: 30px;"></a>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/service/index.html">Services</a></li>
+            <li><a href="/blog/index.html">Blog</a></li>
+            <li><a href="/teamcardfolder/index.html">Team</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <a href="/proposal/index.html" class="quote-btn" >Get Started</a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="header-flex" style="margin-top: 60px; padding: 0 5%;">
+            <h1 class="bg-lime" style="display: inline-block; background: #b9ff66; padding: 0 10px;">Case Studies</h1>
+            <p class="description">Real-world examples of how we've helped our clients achieve their business goals.</p>
+        </div>
+
+        <section class="featured-case">
+            <div class="case-info">
+                <span class="case-tag">E-commerce</span>
+                <h2>How we boosted "GreenGarden" sales by 200% in 6 months.</h2>
+                <p>Through a combination of targeted PPC and high-intent SEO content, we transformed their online presence into a revenue-generating machine.</p>
+
+                <div class="case-metrics">
+                    <div class="metric">
+                        <span class="m-value">200%</span>
+                        <span class="m-label">Sales Growth</span>
+                    </div>
+                    <div class="metric">
+                        <span class="m-value">5.4x</span>
+                        <span class="m-label">ROAS</span>
+                    </div>
+                </div>
+                <a href="/proposal/index.html" class="case-link">Start your success story →</a>
+            </div>
+            <div class="case-visual">
+                <img src="/aiiii.jpg" alt="Analytics Dashboard">
+            </div>
+        </section>
+
+        <div class="cases-grid">
+            <article class="case-card">
+                <div class="card-top">
+                    <span class="case-tag">B2B SaaS</span>
+                    <h3>Lead Gen Campaign</h3>
+                </div>
+                <p>Generated 500+ qualified leads for a Fintech startup using LinkedIn automation and cold outreach.</p>
+                <div class="card-footer">
+                    <span class="result">+45% Conversion</span>
+                </div>
+            </article>
+
+            <article class="case-card dark">
+                <div class="card-top">
+                    <span class="case-tag">Local Business</span>
+                    <h3>SEO Transformation</h3>
+                </div>
+                <p>Dominating local search results for "Best Pizza in Brooklyn" within 90 days of implementation.</p>
+                <div class="card-footer">
+                    <span class="result">Top 3 Ranking</span>
+                </div>
+            </article>
+
+            <article class="case-card">
+                <div class="card-top">
+                    <span class="case-tag">Retail</span>
+                    <h3>Email Marketing</h3>
+                </div>
+                <p>Recovering $50k in abandoned carts through automated behavioral flows and re-engagement.</p>
+                <div class="card-footer">
+                    <span class="result">$50k Recovered</span>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        // --- Menu Toggle ---
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // --- Metric Animation ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const metrics = document.querySelectorAll('.m-value');
+
+            const animateMetrics = (el) => {
+                const targetStr = el.innerText;
+                const target = parseFloat(targetStr);
+                const suffix = targetStr.includes('%') ? '%' : 'x';
+                let count = 0;
+                const duration = 1500; 
+                const frameRate = 20;
+                const totalFrames = duration / frameRate;
+                const increment = target / totalFrames;
+
+                const update = () => {
+                    if (count < target) {
+                        count += increment;
+                        el.innerText = Math.floor(count) + suffix;
+                        setTimeout(update, frameRate);
+                    } else {
+                        el.innerText = target + suffix;
+                    }
+                };
+                update();
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateMetrics(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            metrics.forEach(m => observer.observe(m));
+        });
+        function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    const burger = document.querySelector('.hamburger');
+    
+    nav.classList.toggle('active');
+    burger.classList.toggle('active'); // This triggers the CSS animation above
+}
+    </script>
+</body>
+
+</html>

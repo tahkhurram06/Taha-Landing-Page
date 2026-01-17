@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Positivus</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<style>
+    /* --- PRIVACY POLICY SPECIFIC STYLES --- */
+
+    .privacy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .privacy-content h2 {
+        color: #191a23;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-size: 24px;
+        border-left: 5px solid #b9ff66;
+        /* Your brand lime green */
+        padding-left: 15px;
+    }
+
+    .privacy-content p {
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 20px;
+        font-size: 17px;
+    }
+
+    .privacy-content ul {
+        margin-bottom: 25px;
+        padding-left: 20px;
+    }
+
+    .privacy-content li {
+        margin-bottom: 10px;
+        list-style-type: square;
+        color: #444;
+    }
+
+    /* Highlight for the contact box */
+    .contact-box {
+        background-color: #f3f3f3;
+        border: 1px solid #191a23;
+        border-bottom: 5px solid #191a23;
+        /* Matching your card shadow style */
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 50px;
+    }
+
+    .last-updated {
+        font-style: italic;
+        color: #888;
+        margin-bottom: 40px;
+
+    }
+
+    /* ===== RESPONSIVE FIXES ONLY ===== */
+
+    /* Tablets */
+    @media (max-width: 992px) {
+        .container {
+            padding: 0 20px;
+        }
+
+        .privacy-content,
+        main>div {
+            max-width: 100%;
+        }
+
+        .header-flex {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 576px) {
+        .privacy-content {
+            padding: 15px;
+        }
+
+        .privacy-content h2,
+        section h2 {
+            font-size: 20px;
+        }
+
+        .privacy-content p,
+        section p,
+        li {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        section[style*="background"] {
+            padding: 20px !important;
+        }
+
+        footer .container {
+            padding: 25px 15px;
+        }
+    }
+
+    /* ===== HAMBURGER MENU ===== */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .hamburger span {
+        width: 26px;
+        height: 3px;
+        background: #000;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    @media (max-width: 768px) {
+        .hamburger {
+            display: flex;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background: #f3f3f3;
+            border: 1px solid #000;
+            border-radius: 20px;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            width: 220px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            color: #f3f3f3;
+        }
+
+        .nav-links.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            background-color: #000;
+        }
+
+        .quote-btn {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-logo"><a href="/index.html"><img src="/logo.png" alt="logo" class="logo-placeholder"></a></div>
+        <button class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/teamcardfolder/index.html">Team</a></li>
+            <li><a href="/service/index.html">Services</a></li>
+        </ul>
+        <a href="/index.html" class="quote-btn">Back to Home</a>
+    </nav>
+
+    <main class="container" style="margin-top: 80px; margin-bottom: 100px;">
+
+        <div class="header-flex" style="margin-bottom: 50px;">
+            <h1 class="bg-lime">Privacy Policy</h1>
+            <p class="description">Effective Date: January 2026</p>
+        </div>
+
+        <div style="max-width: 800px; line-height: 1.8; color: #333;">
+            <section style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 15px; color: #191a23;">1. Information We Collect</h2>
+                <p>At Positivus, we collect information you provide directly to us, such as when you request a quote,
+                    sign up for our newsletter, or contact our team. This may include your name, email address, and
+                    company details.</p>
+            </section>
+
+            <section style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 15px; color: #191a23;">2. How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Provide, maintain, and improve our services.</li>
+                    <li>Send technical notices, updates, and security alerts.</li>
+                    <li>Respond to your comments and questions.</li>
+                </ul>
+            </section>
+
+            <section style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 15px; color: #191a23;">3. Data Security</h2>
+                <p>We implement a variety of security measures to maintain the safety of your personal information.
+                    However, no method of transmission over the Internet is 100% secure.</p>
+            </section>
+
+            <section style="margin-bottom: 40px;">
+                <h2 style="margin-bottom: 15px; color: #191a23;">4. Cookies</h2>
+                <p>Our website uses cookies to enhance your browsing experience. You can choose to disable cookies
+                    through your individual browser settings.</p>
+            </section>
+
+            <section
+                style="margin-bottom: 40px; background: #f3f3f3; padding: 30px; border-radius: 20px; border: 1px solid #000;">
+                <h2 style="margin-bottom: 10px;">Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p><strong>Email:</strong> info@positivus.com</p>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="footer" style="width: 100%; margin-left: 0; border-radius: 0;">
+        <div class="container" style="text-align: center; padding: 40px 0;">
+            <p>&copy; 2026 Positivus. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Auto-update the date to the current year/month
+            const dateElement = document.getElementById('current-date');
+            if (dateElement) {
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                dateElement.innerText = now.toLocaleDateString('en-US', options);
+            }
+
+            // 2. Simple "Click to Copy" for the email
+            const emailLink = document.querySelector('.contact-email');
+            if (emailLink) {
+                emailLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const email = emailLink.innerText;
+                    navigator.clipboard.writeText(email);
+                    alert('Email copied to clipboard: ' + email);
+                });
+            }
+
+            // 3. Hamburger toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Positivus</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="services-page.css">
+    <style>
+        /* --- SERVICES PAGE SPECIFIC --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+        .learn-more{
+            color: #000;
+        } 
+        /* Fix for internal card alignment */
+        .service-card {
+            min-height: 310px;
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            border-radius: 45px;
+            border: 1px solid #191a23;
+            box-shadow: 0px 5px 0px #191a23;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .card-img {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-img img {
+            width: 210px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        /* ---------- NAV + HAMBURGER ---------- */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: relative;
+            z-index: 999;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #191a23;
+            font-weight: 500;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 3px;
+            background: #191a23;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* X animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ---------- RESPONSIVE STYLES ---------- */
+
+        /* Tablets */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+        }
+
+        /* Mobile Nav and Grid Stack */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                right: 20px;
+                flex-direction: column;
+                background: #191a23;
+                padding: 20px 0;
+                width: 200px;
+                border-radius: 16px;
+                gap: 16px;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav-links li a {
+                color: #fff;
+                display: block;
+                text-align: center;
+            }
+
+            .quote-btn {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                /* Stack cards vertically */
+            }
+        }
+
+        /* Small Phones */
+        @media (max-width: 480px) {
+            .service-card {
+                padding: 40px;
+                flex-direction: column;
+                /* Stack image under text for more room */
+                gap: 20px;
+            }
+
+            .card-img img {
+                width: 150px;
+                align-self: flex-end;
+            }
+
+            .nav-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <div class="nav-logo">
+            <a href="/index.html">
+                <img src="/logo.png" alt="logo" class="logo-placeholder">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/booking/index.html">Booking</a></li>
+            <li><a href="/teamcardfolder/index.html">Team</a></li>
+        </ul>
+
+        <a href="/proposal/index.html" class="quote-btn">Get Started</a>
+
+        <div class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="services-container" style="margin-top: 60px;">
+            <div class="services-tag">Our Services</div>
+            <p class="services-text">At our digital marketing agency, we offer a range of services to help businesses
+                grow and succeed online.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card gray-card">
+                <div class="card-content">
+                    <div class="highlight-green"><span>Search Engine</span></div>
+                    <div class="highlight-green"><span>Optimization</span></div>
+                    <a href="/service-card1/index.html" class="learn-more">
+                        <div class="arrowbox"><img src="/Arrow 1.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card1.png" alt="SEO"></div>
+            </div>
+
+            <div class="service-card green-card">
+                <div class="card-content">
+                    <div class="highlight-white"><span>Pay-per-click</span></div>
+                    <div class="highlight-white"><span>Advertising</span></div>
+                    <a href="/service-card2/index.html" class="learn-more">
+                        <div class="arrowbox"><img src="/Arrow 1.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card2.png" alt="PPC"></div>
+            </div>
+
+            <div class="service-card dark-card">
+                <div class="card-content">
+                    <div class="highlight-white"><span>Social Media</span></div>
+                    <div class="highlight-white"><span>Marketing</span></div>
+                    <a href="/service-card3/index.html" class="learn-more" style="color: white;">
+                        <div class="arrowbox2"><img src="/Arrow 2.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card3.png" alt="Social"></div>
+            </div>
+
+            <div class="service-card green-card">
+                <div class="card-content">
+                    <div class="highlight-white"><span>Email</span></div>
+                    <div class="highlight-white"><span>Marketing</span></div>
+                    <a href="/service-card4/index.html" class="learn-more">
+                        <div class="arrowbox"><img src="/Arrow 1.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card4.png" alt="Email"></div>
+            </div>
+
+            <div class="service-card gray-card">
+                <div class="card-content">
+                    <div class="highlight-green"><span>Content</span></div>
+                    <div class="highlight-green"><span>Creation</span></div>
+                    <a href="/service-card5/index.html" class="learn-more">
+                        <div class="arrowbox"><img src="/Arrow 1.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card5.png" alt="Content"></div>
+            </div>
+
+            <div class="service-card dark-card">
+                <div class="card-content">
+                    <div class="highlight-green"><span>Analytics and</span></div>
+                    <div class="highlight-green"><span>Reporting</span></div>
+                    <a href="/service-card6/index.html" class="learn-more" style="color: white;">
+                        <div class="arrowbox2"><img src="/Arrow 2.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card6.png" alt="Analytics"></div>
+            </div>
+
+            <div class="service-card gray-card">
+                <div class="card-content">
+                    <div class="highlight-green"><span>Video</span></div>
+                    <div class="highlight-green"><span>Marketing</span></div>
+                    <a href="#" class="learn-more">
+                        <div class="arrowbox"><img src="/Arrow 1.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card1.png" alt="Video"></div>
+            </div>
+
+            <div class="service-card green-card">
+                <div class="card-content">
+                    <div class="highlight-white"><span>UI/UX</span></div>
+                    <div class="highlight-white"><span>Design</span></div>
+                    <a href="#" class="learn-more">
+                        <div class="arrowbox"><img src="/Arrow 1.png" class="arrow-icon-img"></div>
+                        <span>Learn more</span>
+                    </a>
+                </div>
+                <div class="card-img"><img src="/card2.png" alt="Design"></div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to grow your business?</h2>
+                    <p class="cta-description">Contact us today to learn more about how our digital marketing services
+                        can help your business succeed online.</p>
+                    <a href="/proposal/index.html" class="cta-button">Get your free proposal</a>
+                </div>
+                <div class="cta-image-wrapper">
+                    <img src="/img2.png" class="cta-image" alt="cta">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.5s ease forwards';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            if (!hamburger || !navLinks) return;
+
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

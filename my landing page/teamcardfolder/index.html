@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | Positivus</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* --- TEAM PAGE SPECIFIC STYLES --- */
+
+    .team-page-container {
+      padding-top: 80px;
+      padding-bottom: 100px;
+      max-width: 1200px;
+      /* Wider than the homepage for a full-screen feel */
+    }
+
+    /* Adjust the header for the full page view */
+    .team-page-container .team-header-container {
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      margin-bottom: 80px;
+    }
+
+    #head {
+      margin-top: 5px;
+    }
+
+    .team-page-container .team-text {
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    /* Ensure the grid looks perfect with 10 cards */
+    .team-grid-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 3 cards per row */
+      gap: 40px 30px;
+      /* More vertical space between rows */
+    }
+
+    .back-home-btn {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #191A23;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 999;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Hover effect */
+    .back-home-btn:hover {
+      background-color: #2c2d3a;
+      transform: translateY(-50%) translateX(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      color: rgb(143, 226, 17);
+    }
+
+    /* Active click */
+    .back-home-btn:active {
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .back-home-btn {
+        right: 12px;
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .team-grid-section {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards per row on tablets */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-grid-section {
+        grid-template-columns: 1fr;
+        /* 1 card per row on mobile */
+      }
+
+      .team-page-container {
+        padding-top: 40px;
+      }
+
+    }
+
+    @media (max-width: 1024px) {
+      .team-grid-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .team-grid-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="/" class="back-home-btn">← Back to Home</a>
+
+  <main class="container team-section-wrapper" style="margin-top: 60px;">
+
+    <div id="head" class="team-header-container">
+      <h2 class="team-label">Our Team</h2>
+      <p class="team-text">Meet the skilled and experienced team behind our successful digital marketing strategies</p>
+    </div>
+
+    <div class="team-grid-section">
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic1.png" class="profile" alt="John Smith"></div>
+          <div class="title-box">
+            <h3>John Smith</h3>
+            <p>CEO and Founder</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic2.png" class="profile" alt="Jane Doe"></div>
+          <div class="title-box">
+            <h3>Jane Doe</h3>
+            <p>Director of Operations</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">7+ years of experience in project management and team leadership. Strong organizational skills.
+        </p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic3.png" class="profile" alt="Michael Brown"></div>
+          <div class="title-box">
+            <h3>Michael Brown</h3>
+            <p>Senior SEO Specialist</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">5+ years of experience in SEO and content optimization. Proficient in keyword research.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic4.png" class="profile" alt="Emily Johnson"></div>
+          <div class="title-box">
+            <h3>Emily Johnson</h3>
+            <p>PPC Manager</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">3+ years of experience in paid search advertising. Skilled in campaign management.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic5.png" class="profile" alt="Brian Williams"></div>
+          <div class="title-box">
+            <h3>Brian Williams</h3>
+            <p>Social Media Manager</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">4+ years of experience in social media marketing. Proficient in creating engaging content.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic6.png" class="profile" alt="Sarah Kim"></div>
+          <div class="title-box">
+            <h3>Sarah Kim</h3>
+            <p>Content Creator</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">2+ years of experience in writing and editing. Skilled in creating compelling blog posts.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic1.png" class="profile" alt="Alex Rivera"></div>
+          <div class="title-box">
+            <h3>Alex Rivera</h3>
+            <p>Senior UX Designer</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">6+ years in user-centric design. Specialized in wireframing and interactive prototyping.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic2.png" class="profile" alt="Sophia Chen"></div>
+          <div class="title-box">
+            <h3>Sophia Chen</h3>
+            <p>Data Analyst</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">Expert in Google Analytics and BigQuery. Transforms data into actionable insights.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic3.png" class="profile" alt="Marcus Thorne"></div>
+          <div class="title-box">
+            <h3>Marcus Thorne</h3>
+            <p>Email Strategist</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">Specialist in automation workflows. Boosted client retention by 40% on average.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic4.png" class="profile" alt="Olivia Vance"></div>
+          <div class="title-box">
+            <h3>Olivia Vance</h3>
+            <p>Video Producer</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">Creative storyteller focused on high-impact social video ads and brand docs.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic5.png" class="profile" alt="Isabella Rossi"></div>
+          <div class="title-box">
+            <h3>Isabella Rossi</h3>
+            <p>Marketing Lead</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">International market expert with a focus on European brand expansion.</p>
+      </div>
+
+      <div class="team-card">
+        <div class="card-header">
+          <div class="image-box"><img src="/cardpic6.png" class="profile" alt="Nathan Drake"></div>
+          <div class="title-box">
+            <h3>Nathan Drake</h3>
+            <p>Backend Developer</p>
+          </div>
+          <a href="https://pk.linkedin.com/" class="linkedin"><img src="/linkdinbutton.png" alt="LI"></a>
+        </div>
+        <hr>
+        <p class="bio">Ensures the technical side of marketing integrations runs smoothly and securely.</p>
+      </div>
+
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Proposal | Positivus</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="proposal.css">
+    <style>
+        /* --- PROPOSAL PAGE SPECIFIC --- */
+
+        .proposal-form-wrapper {
+            margin: 60px 0 100px 0;
+        }
+
+        .proposal-card {
+            background-color: #f3f3f3;
+            border: 1px solid #000;
+            border-bottom: 6px solid #000;
+            /* Matching your brand's shadow style */
+            border-radius: 45px;
+            display: flex;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-content {
+            flex: 1;
+            max-width: 550px;
+            z-index: 2;
+        }
+
+        /* Radio Buttons Styling */
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .radio-item input {
+            display: none;
+        }
+
+        .custom-radio {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            background: #fff;
+        }
+
+        .radio-item input:checked+.custom-radio::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background-color: #b9ff66;
+            /* Lime Green Dot */
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Inputs */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            padding: 18px 25px;
+            border: 1px solid #000;
+            border-radius: 14px;
+            font-size: 16px;
+            background: #fff;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #b9ff66;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            background-color: #191a23;
+            color: #fff;
+            padding: 20px;
+            border: none;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #b9ff66;
+            color: #191a23;
+            transform: translateY(-3px);
+        }
+
+        .form-visual {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .proposal-img {
+            max-width: 400px;
+            /* Keeps the illustration slightly off-canvas like the original design */
+            position: absolute;
+            right: -50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .proposal-card {
+                flex-direction: column;
+                padding: 40px;
+            }
+
+            .form-visual {
+                display: none;
+            }
+
+            .form-content {
+                max-width: 100%;
+            }
+        }
+
+        /* Hamburger & mobile nav for Proposal page */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            top: 0;
+            z-index: 999;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #191a23;
+            font-weight: 500;
+        }
+
+        /* Hamburger button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #191a23;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hamburger active animation (X) */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile nav */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                flex-direction: column;
+                background: #191a23;
+                padding: 20px 0;
+                border-radius: 15px;
+                width: 200px;
+                gap: 15px;
+
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav-links li a {
+                color: #fff;
+                text-align: center;
+            }
+
+            .quote-btn {
+                display: none;
+                /* optional: hide button on mobile */
+            }
+
+            .proposal-card {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            .form-visual {
+                display: none;
+            }
+
+            .form-content {
+                max-width: 100%;
+            }
+        }
+
+        /* Extra small mobile fix */
+        @media (max-width: 480px) {
+            .proposal-card {
+                padding: 20px;
+            }
+
+            .input-group input,
+            .input-group textarea {
+                padding: 14px 18px;
+            }
+
+            .submit-btn {
+                padding: 16px;
+                font-size: 16px;
+            }
+        }
+
+        /* Decorative background for mobile (inside proposal card) */
+        @media (max-width: 768px) {
+            .proposal-card {
+                position: relative;
+                background-color: #e9e4e2;
+                /* match screenshot tone */
+            }
+
+            .proposal-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-image: url("/imglast.png");
+                /* <-- your image */
+                background-repeat: no-repeat;
+                background-position: center 40%;
+                background-size: 110%;
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            .form-content {
+                position: relative;
+                z-index: 2;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('proposalForm');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // 1. Change button text to show "Processing"
+                const btn = form.querySelector('.submit-btn');
+                const originalText = btn.innerText;
+                btn.innerText = 'Sending...';
+                btn.style.opacity = '0.7';
+                btn.disabled = true;
+
+                // 2. Simulate a server delay (2 seconds)
+                setTimeout(() => {
+                    // Success State
+                    form.innerHTML = `
+                <div style="text-align: center; padding: 40px 0;">
+                    <div style="font-size: 50px; margin-bottom: 20px;">✅</div>
+                    <h2 style="margin-bottom: 10px;">Proposal Request Sent!</h2>
+                    <p>Thank you for reaching out. Our team will review your details and get back to you within 24 hours.</p>
+                    <button onclick="window.location.href='index.html'" class="submit-btn" style="margin-top: 30px; width: auto;">Return Home</button>
+                </div>
+            `;
+                }, 2000);
+            });
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Click outside to close menu
+                document.addEventListener('click', (e) => {
+                    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+
+                // Close menu on resize to desktop
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            }
+        });
+
+
+    </script>
+    <nav class="nav-container">
+        <div class="nav-logo"><a href="/index.html"><img src="/logo.png" alt="logo" class="logo-placeholder"></a></div>
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/service/index.html">Services</a></li>
+            <li><a href="/teamcardfolder/index.html">Team</a></li>
+        </ul>
+        <div class="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="/index.html" class="quote-btn">Back to Home</a>
+    </nav>
+
+    <main class="container">
+        <div class="contact-header-section">
+            <div class="contact-header-container">
+                <h1 class="contact-label">Get a Proposal</h1>
+                <p class="contact-text">Connect with us: Let's discuss your digital marketing needs and how we can help
+                    you grow.</p>
+            </div>
+        </div>
+
+        <div class="proposal-form-wrapper">
+            <div class="proposal-card">
+                <form id="proposalForm" class="form-content">
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="interest" value="say-hi" checked>
+                            <span class="custom-radio"></span>
+                            Say Hi
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="interest" value="get-quote">
+                            <span class="custom-radio"></span>
+                            Get a Quote
+                        </label>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Name*</label>
+                        <input type="text" id="name" placeholder="Name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email*</label>
+                        <input type="email" id="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Message*</label>
+                        <textarea id="message" rows="5" placeholder="Hello! I am interested in..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div class="form-visual">
+                    <img src="/imglast.png" alt="Contact Illustration" class="proposal-img">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="proposal.js"></script>
+</body>
+
+</html>

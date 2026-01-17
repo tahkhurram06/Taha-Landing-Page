@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Optimization | Positivus</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* --- SERVICE DETAIL PAGE --- */
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .service-hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-hero .tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: #e6f5ef;
+      color: #1f7a5f;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .service-hero p {
+      max-width: 750px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .service-detail {
+      max-width: 1200px;
+      margin: 0 auto 120px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .service-text {
+      flex: 1;
+    }
+
+    .service-text h2 {
+      margin-bottom: 12px;
+    }
+
+    .service-text p {
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .service-text ul {
+      padding-left: 18px;
+      line-height: 1.8;
+    }
+
+    /* --- IMAGE FLOATING STYLE --- */
+    .service-image {
+      flex: 1.2;
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+    }
+
+    .service-image img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      transform: translateY(-20px);
+    }
+
+    /* --- BACK BUTTON --- */
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 26px;
+      border-radius: 40px;
+      background: #191a23;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* --- MOBILE --- */
+    @media (max-width: 768px) {
+      .service-detail {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .service-image {
+        justify-content: center;
+      }
+
+      .service-image img {
+        transform: none;
+        max-width: 100%;
+      }
+
+      .service-hero {
+        padding-top: 100px;
+      }
+
+    }
+    /* 1. Define the floating movement */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 2. Apply it to your image */
+.service-image img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  
+  /* Replace your static transform with this: */
+  animation: float 4s ease-in-out infinite; 
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="service-hero">
+    <span class="tag">SEO</span>
+    <p>
+      Search Engine Optimization that helps your business rank higher,
+      attract quality traffic, and grow sustainably.
+    </p>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="service-detail">
+
+    <div class="service-text">
+      <h2>What we do</h2>
+      <p>
+        We optimize your website’s structure, content, and performance
+        so search engines can easily understand and rank your pages.
+      </p>
+
+      <h2>What’s included</h2>
+      <ul>
+        <li>Keyword research</li>
+        <li>On-page SEO optimization</li>
+        <li>Technical SEO improvements</li>
+        <li>Content optimization</li>
+        <li>Monthly performance reporting</li>
+      </ul>
+
+      <a href="../index.html" class="back-btn">
+        ← Back to Home
+      </a>
+    </div>
+
+    <div class="service-image">
+      <img src="/card1.png" alt="SEO service illustration">
+    </div>
+
+  </section>
+
+</body>
+</html>

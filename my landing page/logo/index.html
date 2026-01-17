@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positivus Floating Hero</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            position: relative;
+        }
+
+        /* The Main Floating Image */
+        @keyframes floatMain {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .main-logo {
+            width: 350px; 
+            cursor: pointer;
+            animation: floatMain 4s ease-in-out infinite;
+            z-index: 10;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+        }
+
+        .main-logo:active { transform: scale(0.9); }
+
+        .arrow {
+            color: white;
+            font-size: 5rem;
+            cursor: pointer;
+            user-select: none;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .arrow:hover { opacity: 1; transform: scale(1.2); }
+
+        /* --- FALLING IMAGE SIZE SETTING --- */
+        .falling-pic {
+            position: absolute;
+            /* Increase this number to make them even bigger */
+            width: 100px; 
+            pointer-events: none;
+            z-index: 5;
+            top: -150px;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+         <div class="arrow">›</div>
+        
+        
+        <img src="/logofolder.png" alt="Logo" class="main-logo" id="mainLogo">
+        <div class="arrow">‹</div>
+       
+    </div>
+
+    <script>
+        const mainLogo = document.getElementById('mainLogo');
+
+        mainLogo.addEventListener('click', () => {
+            const count = 15; 
+            for (let i = 0; i < count; i++) {
+                createFallingLogo();
+            }
+        });
+
+        function createFallingLogo() {
+            const img = document.createElement('img');
+            img.src = mainLogo.src;
+            img.className = 'falling-pic';
+            
+            // --- RANDOM SIZE LOGIC ---
+            // This makes some 50px and some 150px for a cool effect
+            const randomWidth = Math.floor(Math.random() * 100) + 50; 
+            img.style.width = randomWidth + 'px';
+            
+            const startX = Math.random() * window.innerWidth;
+            img.style.left = startX + 'px';
+            
+            document.body.appendChild(img);
+
+            const duration = 2500 + Math.random() * 2000;
+            const rotation = Math.random() * 1000 - 500;
+            const sideDrift = (Math.random() - 0.5) * 400;
+
+            const fall = img.animate([
+                { transform: `translateY(0px) rotate(0deg)`, opacity: 1 },
+                { transform: `translateY(${window.innerHeight + 200}px) translateX(${sideDrift}px) rotate(${rotation}deg)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            });
+
+            fall.onfinish = () => img.remove();
+        }
+    </script>
+</body>
+</html>

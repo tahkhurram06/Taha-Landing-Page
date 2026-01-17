@@ -1,0 +1,2190 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+/* NAVBAR */
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  /* This ensures the animation is smooth */
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-logo img:hover {
+  /* Creates a lime green glow around the logo letters */
+  filter: drop-shadow(0 0 8px #070e00);
+
+  /* Optional: Slightly lift the logo to make it feel more interactive */
+  transform: translateY(-2px);
+}
+
+.logo-placeholder {
+  height: 32px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin-left: auto;
+  margin-right: 85px;
+  font-size: large;
+}
+
+/* 1. Base style for the top nav links */
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  position: relative;
+  /* Required for the underline position */
+  padding-bottom: 5px;
+  /* Space between text and line */
+  transition: color 0.3s ease;
+}
+
+/* 2. Create the hidden underline */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  /* Start at zero width */
+  height: 2px;
+  background-color: #caff33;
+  /* Using your lime green from the top nav */
+  transition: width 0.3s ease;
+}
+
+/* 3. Slide the line out on hover */
+.nav-links a:hover::after {
+  width: 100%;
+  /* Grow to full width */
+}
+
+.nav-links a:hover {
+  color: #000;
+  /* Glowing shadow effect for the text */
+  filter: drop-shadow(0 0 5px rgba(14, 20, 6, 0.8));
+
+  /* Slight lift effect to make it feel "active" */
+  transform: translateY(-1px);
+}
+
+/* Ensure the transition is smooth by adding this to the base state */
+.nav-links a {
+  display: inline-block;
+  /* Required for transform to work */
+  transition: all 0.3s ease;
+}
+
+/* 4. Optional: change text color on hover to match footer style */
+.nav-links a:hover {
+  color: #caff33;
+}
+
+.quote-btn {
+  padding: 10px 18px;
+  border: 1.5px solid #000;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #000;
+  font-size: large;
+  /* ADD THIS LINE BELOW */
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.quote-btn:hover {
+  background-color: #191a23;
+  /* Dark background from your brand */
+  color: #b9ff66;
+  /* Lime Green text */
+  border-color: #191a23;
+  /* Match the border to the background */
+
+  /* The Glowing Shadow */
+  box-shadow: 0 0 15px rgba(185, 255, 102, 0.6);
+
+  /* Slight lift effect */
+  transform: translateY(-2px);
+}
+
+/* HERO */
+.hero {
+  padding: 60px 24px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero-content p {
+  max-width: 450px;
+  color: #444;
+  margin-bottom: 32px;
+  font-size: 18px;
+}
+
+/* 1. Base Button Style */
+.hero-btn {
+  padding: 16px 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  display: inline-block;
+  border: 2px solid #000;
+  /* Added a border for a smooth swap */
+  transition: all 0.3s ease;
+  /* Makes the color and glow fade in */
+}
+
+/* 2. Hover Effect */
+.hero-btn:hover {
+  background-color: #caff33;
+  /* Turns Lime Green */
+  color: #000;
+  /* Text turns black */
+  border-color: #caff33;
+  /* Border matches background */
+  font-size: large;
+  font-weight: bold;
+  /* Neon Glow effect */
+  box-shadow: 0 0 20px rgba(202, 255, 51, 0.6);
+
+  /* Slight bounce up */
+  transform: translateY(-3px);
+}
+
+.hero-visual img {
+  max-width: 100%;
+}
+
+/* 1. Tell the megaphone image to use the animation */
+.hero-visual img {
+  max-width: 100%;
+  display: block;
+  /* name | duration | timing | loop */
+  animation: megaphoneFloat 4s ease-in-out infinite;
+}
+
+/* 2. Define how the "floating" actually moves */
+@keyframes megaphoneFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+    /* Lifts up and tilts slightly */
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* BRAND STRIP */
+.brand-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.brand-item img {
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.brand-item img:hover {
+  filter: grayscale(100%);
+  opacity: 0.4;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#amz,
+#drb,
+#hub {
+  height: 35px;
+}
+
+#not,
+#nfx,
+#zom {
+  height: 30px;
+}
+
+/* SERVICES HEADER */
+.services-container {
+  max-width: 1200px;
+  margin: 60px auto 20px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.services-tag {
+  background: #caff33;
+  font-weight: 700;
+  font-size: 24px;
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.services-text {
+  max-width: 500px;
+  color: #444;
+}
+
+/* SERVICES GRID */
+.services-grid {
+  max-width: 1200px;
+  margin: 40px auto 80px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.service-card {
+  border: 1px solid #000;
+  border-bottom: 6px solid #000;
+  border-radius: 40px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* Changed to start for text wrapping */
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+.gray-card {
+  background: #e1dcdc;
+}
+
+.green-card {
+  background: #caff33;
+}
+
+.dark-card {
+  background: #191a23;
+}
+
+/* NEW HIGHLIGHT DESIGN */
+.highlight-green span,
+.highlight-white span {
+  display: inline;
+  padding: 2px 10px;
+  border-radius: 8px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.highlight-green span {
+  background-color: #caff33;
+  color: #000;
+}
+
+.highlight-white span {
+  background-color: #fff;
+  color: #000;
+}
+
+.highlight-green,
+.highlight-white {
+  background: transparent !important;
+  padding: 0 !important;
+  margin-bottom: 20px;
+}
+
+/* LEARN MORE & ARROW */
+.learn-more {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 50px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+.arrowbox,
+.arrowbox2 {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowbox {
+  background-color: #191a23;
+}
+
+.arrowbox2 {
+  background-color: #f3f3f3;
+}
+
+.arrow-icon-img {
+  width: 16px;
+  transition: transform 0.3s ease;
+}
+
+.learn-more:hover .arrow-icon-img {
+  transform: rotate(45deg);
+}
+
+.card-img img {
+  width: 180px;
+  height: auto;
+  animation: float 5s ease-in-out infinite;
+}
+
+/* CTA SECTION (1200px) */
+.cta-section {
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
+  padding: 0 24px;
+}
+
+.cta-container {
+  background-color: #e1dcdc;
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px;
+  position: relative;
+}
+
+.cta-content {
+  flex: 0 0 55%;
+}
+
+.cta-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.cta-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* 1. Base style for the CTA button */
+.cta-button {
+  display: inline-block;
+  background-color: #191A23;
+  color: #FFFFFF;
+  padding: 18px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  border: 2px solid #191A23;
+  /* Added border for smooth transition */
+  transition: all 0.3s ease;
+  /* Smooth fade for color and glow */
+}
+
+/* 2. Hover effect */
+.cta-button:hover {
+  background-color: #b9ff66;
+  /* Turns Lime Green */
+  color: #191a23;
+  /* Text turns Dark */
+  border-color: #b9ff66;
+  font-weight: bold;
+  /* Neon glow effect */
+  box-shadow: 0 0 20px rgba(185, 255, 102, 0.6);
+
+  /* Lift it up slightly */
+  transform: translateY(-3px);
+}
+
+.cta-image-wrapper {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 1. Target the CTA illustration */
+.cta-image {
+  max-width: 100%;
+  transform: scale(1.1);
+  /* Keep your original scale */
+
+  /* name | duration | timing | loop */
+  animation: ctaFloat 3s ease-in-out infinite;
+}
+
+/* 2. Define a slightly slower, unique float for this image */
+@keyframes ctaFloat {
+  0% {
+    transform: scale(1.1) translateY(0px);
+  }
+
+  50% {
+    transform: scale(1.1) translateY(-15px);
+    /* Lifts up 15px */
+  }
+
+  100% {
+    transform: scale(1.1) translateY(0px);
+  }
+}
+
+/* Container to keep alignment consistent with the rest of your site */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-header {
+  margin-top: 80px;
+  /* Space from the hero section above */
+  margin-bottom: 40px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  /* Vertically centers the text with the label */
+  gap: 40px;
+  margin-left: 30px;
+  /* Space between the green box and the text */
+}
+
+/* The Green Label Styling */
+.label-highlight {
+  background-color: #b9ff66;
+  /* The specific Positivus lime green */
+  padding: 5px 15px;
+  border-radius: 7px;
+  font-size: 40px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* The Description Styling */
+.header-description {
+  max-width: 500px;
+  /* Prevents the text from stretching too wide */
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.case-studies {
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.case-card {
+  background-color: #191a23;
+  /* Dark background from the design */
+  border-radius: 40px;
+  /* Highly rounded corners */
+  display: flex;
+  padding: 60px;
+  color: #fff;
+  margin-top: 110px;
+  margin-left: -110px;
+  width: 1152px;
+}
+
+.case-item {
+  flex: 1;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Vertical Separator Lines */
+.case-item:not(:last-child) {
+  border-right: 1px solid #fff;
+}
+
+.case-item p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Learn More Link */
+.learn-more {
+  color: #b9ff66;
+  /* Neon green color */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.learn1 {
+  color: #191a23;
+}
+
+.learn-more img {
+  width: 18px;
+  /* Size of the arrow icon */
+  height: auto;
+}
+
+/* Reusable container for the whole site */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.process-header {
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+  /* Vertically centers the text with the label */
+  gap: 40px;
+  margin-left: 24px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+/* The Signature Lime Highlight */
+.bg-lime {
+  background-color: #b9ff66;
+  padding: 5px 15px;
+  border-radius: 7px;
+  font-size: 40px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000;
+  max-width: 300px;
+  /* Keeps the text compact like the image */
+  font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.list-item {
+  background-color: #e1dcdc;
+  border: 1px solid #000;
+  border-bottom: 5px solid #000;
+  /* Shadow effect */
+  border-radius: 40px;
+  padding: 25px 50px;
+  transition: background-color 0.3s ease;
+}
+
+/* Green state when active */
+.list-item.active {
+  background-color: #b9ff66;
+}
+
+.item-visible {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.item-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.item-number {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.item-text {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.toggle-button {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background: white;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  color: black;
+}
+
+.toggle-button:hover {
+  background-color: black;
+  color: #f3f3f3;
+  transition: all 0.3s ease;
+}
+
+.item-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.list-item.active .item-details {
+  max-height: 300px;
+  /* Room for the text */
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+  margin: 25px 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Container: Default for Desktop (Side-by-Side) */
+.team-header-container {
+  display: flex;
+  flex-direction: row;
+  /* Desktop is horizontal */
+  align-items: center;
+  gap: 40px;
+  font-family: 'Inter', sans-serif;
+  margin-top: -60px;
+}
+
+/* The Green Label Box */
+.team-label {
+  background-color: #B9FF66;
+  /* Specific lime green */
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* The Description Text */
+.team-text {
+  font-size: 16px;
+  color: #000;
+  max-width: 450px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- TEAM SECTION (Aligned with Accordion) --- */
+
+/* 1. Main Container: Matches the 1000px width of your accordion */
+.container.team-section-wrapper {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 0;
+}
+
+/* 2. Header: Matches the 'Our Working Process' layout */
+.team-header-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.team-label {
+  background-color: #b9ff66;
+  /* Lime Green */
+  padding: 5px 15px;
+  border-radius: 7px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.team-text {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000;
+  max-width: 450px;
+}
+
+/* 3. Grid: 3 columns to match the design */
+.team-grid-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+/* 4. Individual Cards: Matches accordion border/shadow style */
+.team-card {
+  border: 1px solid #000;
+  border-bottom: 5px solid #000;
+  /* Matching the shadow on accordion */
+  border-radius: 40px;
+  padding: 35px;
+  background: #fff;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+
+.team-card:hover {
+  transform: translateY(-10px);
+  /* Lifts the card up */
+  border-color: #b9ff66;
+  /* Changes border to lime green */
+  box-shadow: 0 10px 20px rgba(185, 255, 102, 0.2);
+  /* Soft green glow */
+  background-color: #fff;
+  /* Ensures background stays crisp */
+}
+
+.team-card:hover .profile {
+  transform: scale(1.05);
+  /* Zooms in slightly on the person */
+  transition: transform 0.3s ease;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Image styling for the profile & green shape */
+.image-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.image-box .profile {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.title-box h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.team-card:hover .title-box h3 {
+  color: #000;
+  /* Keeps text sharp */
+}
+
+.title-box p {
+  margin: 0;
+  font-size: 16px;
+  color: #000;
+}
+
+.linkedin {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.linkedin img {
+  width: 32px;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.linkedin:hover img {
+  transform: rotate(15deg) scale(1.1);
+  /* Slight tilt and grow */
+  filter: drop-shadow(0 0 5px #b9ff66);
+  /* Neon glow on the icon */
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+  margin: 20px 0;
+}
+
+.bio {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 5. See All Button Container */
+.footer-btn-container {
+  text-align: right;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.btn-primary {
+  background: #191a23;
+  color: #fff;
+  padding: 18px 35px;
+  border-radius: 14px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+
+.btn-primary:hover {
+  background-color: #b9ff66;
+  /* Your brand lime green */
+  color: #191a23;
+  /* Dark text for contrast */
+
+  /* Neon Glow effect */
+  box-shadow: 0 0 20px rgba(185, 255, 102, 0.6);
+
+  /* Lift effect */
+  transform: translateY(-3px);
+
+  /* Ensure cursor is a pointer */
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  /* Vertically centers the items */
+  gap: 25px;
+  /* Space between the green box and the text */
+  font-family: 'Inter', sans-serif;
+}
+
+.badge {
+  background-color: #b9ff66;
+  /* The neon green color from the image */
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 8px;
+  /* Soft rounded corners */
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  /* Removes default h2 spacing */
+}
+
+.description {
+  color: #1a1a1a;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  /* Removes default p spacing */
+  max-width: 450px;
+  /* Prevents the text from stretching too wide */
+}
+
+:root {
+  --neon: #b9ff66;
+  --dark: #191a23;
+}
+
+body {
+  background: #f3f3f3;
+  font-family: sans-serif;
+}
+
+/* --- REPLACE FROM HERE --- */
+.testimonial-section {
+  background: var(--dark);
+  /* or #191A23 */
+  padding: 60px 0;
+  overflow: hidden;
+  /* This cuts off the overflow */
+  position: relative;
+  border-radius: 50px 50px;
+}
+
+.carousel-container {
+  width: 100%;
+}
+
+.testimonial-track {
+  display: flex;
+  gap: 30px;
+  /* IMPORTANT: matches the gap in JS */
+  will-change: transform;
+}
+
+.testimonial-card {
+  /* MAGIC FORMULA: 60% Width */
+  flex: 0 0 60%;
+  min-width: 60%;
+
+  /* Default state (inactive side cards) */
+  opacity: 0.3;
+  transform: scale(0.9);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.testimonial-card.active {
+  /* Active state (center card) */
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* --- TO HERE --- */
+.bubble {
+  border: 1px solid var(--neon);
+  border-radius: 40px;
+  padding: 40px;
+  position: relative;
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #f3f3f3;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 60px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--dark);
+  border-left: 1px solid var(--neon);
+  border-bottom: 1px solid var(--neon);
+  transform: rotate(-45deg);
+}
+
+/* Speech Bubble Style */
+
+/* Navigation Controls Styling */
+.nav-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  /* Increased gap to push arrows to the sides of the dots */
+  margin-top: 50px;
+  padding-bottom: 20px;
+  justify-content: space-around;
+}
+
+/* Style for both Prev and Next buttons */
+.nav-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Make images lighter (semi-transparent) by default */
+.nav-controls button img {
+  width: 35px;
+  /* Adjust size if needed */
+  opacity: 0.5;
+  /* This makes them "lighter" */
+  filter: brightness(0) invert(1);
+  /* Ensures they are white/light gray */
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect: Make them darker/whiter and slightly larger */
+.nav-controls button:hover img {
+  opacity: 1;
+  /* Full brightness */
+  transform: scale(1.1);
+}
+
+/* Optional: Add a slight "active" press effect */
+.nav-controls button:active img {
+  transform: scale(0.9);
+}
+
+.author {
+  padding-left: 80px;
+}
+
+.name {
+  color: var(--neon);
+  display: block;
+  font-weight: bold;
+}
+
+.role {
+  display: block;
+  font-size: 14px;
+  opacity: 0.8;
+  color: #F3F3F3;
+}
+
+/* Navigation */
+
+.dot {
+  width: 15px;
+  /* Larger size so the shape is clear */
+  height: 15px;
+  background-color: white;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  /* THE POLYGON SHAPE */
+  /* Note: Ensure there are no spaces between the coordinates */
+  clip-path: polygon(50% 24%, 100% 0%, 80% 50%, 100% 100%, 50% 74%, 49% 75%, 0% 100%, 17% 51%, 0% 0%);
+
+  /* Remove these if they exist in your old code */
+  border: none;
+  border-radius: 0;
+}
+
+.dot.active {
+  background-color: #B9FF66;
+  /* Your Lime Green */
+  opacity: 1;
+  transform: scale(1.4);
+  /* Makes it grow when active */
+}
+
+.arrrows {
+  border: transparent 2px;
+  border-radius: 50%;
+}
+
+.arrrows:hover {
+  background-color: black;
+  border: transparent 2px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+/* Ensure the wrapper isn't squishing them */
+.dots-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 30px;
+  /* Gives them room to scale up */
+}
+
+
+/* Fix: Makes clicking the image feel like clicking the button */
+.card-img img,
+.arrow-icon-img {
+  pointer-events: none;
+}
+
+/* Ensure the whole card is clickable and shows a pointer */
+.service-card,
+.testimonial-card {
+  cursor: pointer;
+}
+
+/* --- CONTACT US HEADER --- */
+.contact-header-section {
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.contact-header-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-label {
+  background-color: #b9ff66;
+  /* Neon Lime Green */
+  padding: 5px 15px;
+  border-radius: 7px;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contact-text {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #000;
+  max-width: 300px;
+  /* Keeps text compact as shown in design */
+  margin: 0;
+}
+
+/* --- CONTACT SECTION STYLING --- */
+
+.contact-header-section {
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.contact-header-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-label {
+  background-color: #b9ff66;
+  padding: 5px 15px;
+  border-radius: 7px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.contact-text {
+  font-size: 18px;
+  line-height: 1.4;
+  max-width: 320px;
+}
+
+/* Form Container */
+.contact-form-wrapper {
+  margin-bottom: 100px;
+}
+
+.contact-form-container {
+  background-color: #e1dcdc;
+  border-radius: 45px;
+  padding: 60px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-content {
+  flex: 0 0 60%;
+  z-index: 2;
+}
+
+.form-visual {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.contact-illustration {
+  position: absolute;
+  right: -100px;
+  /* Adjust based on your image size */
+  max-width: 500px;
+}
+
+/* Form Elements */
+.radio-group {
+  display: flex;
+  gap: 35px;
+  margin-bottom: 30px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.radio-item input {
+  display: none;
+}
+
+.custom-radio {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: #fff;
+}
+
+.radio-item input:checked+.custom-radio::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #b9ff66;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 18px 25px;
+  border: 1px solid #000;
+  border-radius: 14px;
+  font-size: 16px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #191A23;
+  color: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #333;
+}
+
+
+.footer {
+  background-color: #191A23;
+  color: white;
+  padding: 50px 20px;
+  border-radius: 40px 40px 0 0;
+  /* Rounded top corners like the image */
+  font-family: 'Arial', sans-serif;
+  
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Top Row */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo img {
+  /* This ensures the animation is smooth */
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.logo img:hover {
+  /* Creates a lime green glow around the logo letters */
+  filter: drop-shadow(0 0 15px #B9FF66);
+
+  /* Optional: Slightly lift the logo to make it feel more interactive */
+  transform: translateY(-2px);
+}
+
+.footer-nav a {
+  color: white;
+  text-decoration: none;
+  /* Remove default underline */
+  margin: 0 15px;
+  font-size: 16px;
+  position: relative;
+  /* Required for the absolute line positioning */
+  padding-bottom: 5px;
+  /* Space for the line */
+}
+
+/* Create the "invisible" line */
+.footer-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  /* Start at 0 width */
+  height: 2px;
+  background-color: #B9FF66;
+  /* The Positivus lime green */
+  transition: width 0.3s ease;
+  /* This creates the sliding motion */
+}
+
+/* Grow the line on hover */
+.footer-nav a:hover::after {
+  width: 100%;
+  /* Slide out to full width */
+}
+
+.footer-nav a:hover {
+  color: #caff33;
+}
+
+.social-icons img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.social-icons a img {
+  transition: filter 0.3s ease;
+  /* Makes the glow smooth */
+}
+
+.social-icons a img:hover {
+  /* x-offset, y-offset, blur-radius, color */
+  filter: drop-shadow(0 0 8px #caff33);
+}
+
+/* Middle Row */
+.footer-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.contact-label {
+  background-color: #B9FF66;
+  color: black;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* Newsletter Box */
+.newsletter-box {
+  background-color: #292A32;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.newsletter-box input {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 12px 20px;
+  color: white;
+  width: 200px;
+}
+
+.newsletter-box button {
+  background-color: #B9FF66;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Bottom Row */
+.footer-divider {
+  border: 0;
+  border-top: 1px solid #444;
+  margin-bottom: 25px;
+}
+
+.footer-bottom {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+}
+
+.privacy-link {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Base Hamburger Styling */
+/* --- HAMBURGER FIX --- */
+
+/* IMPORTANT: Remove 'display: flex', 'gap', and 'flex-direction' from here! */
+
+/* --- BASE HAMBURGER STYLES --- */
+.hamburger {
+  display: none;
+  /* HIDES IT ON DESKTOP - This fixes your "showing on normal screen" issue */
+}
+
+/* Define what the bars look like generally */
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  /* Thickness */
+  background-color: #000;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+
+  /* --- SHOW & FIX HAMBURGER ON MOBILE --- */
+  .hamburger {
+    display: flex;
+    /* Shows it on mobile */
+    flex-direction: column;
+    /* Stacks bars vertically */
+    justify-content: space-between;
+    /* Pushes bars apart (Fixes the collapse) */
+    width: 30px;
+    height: 21px;
+    /* This height is vital! It gives the bars room to breathe */
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  /* Ensure the bars themselves don't have conflicting flex rules */
+  .hamburger span {
+    margin: 0;
+    /* Resets any accidental negative margins */
+    display: block;
+    /* Ensures they act like bars, not flex containers */
+  }
+
+  /* Pushes the logo to the left and hamburger to the right */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Optional: Animate hamburger to an 'X' when active */
+  .nav-links.active~.hamburger span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .nav-links.active~.hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-links.active~.hamburger span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    /* smaller margin so it fits mobile */
+    width: 220px;
+    background: whitesmoke;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.35s ease;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+
+  .quote-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  /* Global containers */
+  .container,
+  .nav-container,
+  .hero-container,
+  .services-container,
+  .services-grid,
+  .cta-section,
+  .details-container {
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Hero */
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content p {
+    max-width: 100%;
+  }
+
+  /* Services */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Case studies */
+  .case-card {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .case-item {
+    padding: 20px 0;
+    border-right: none;
+    border-bottom: 1px solid #fff;
+  }
+
+  .case-item:last-child {
+    border-bottom: none;
+  }
+
+  /* CTA */
+  .cta-container {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .cta-content,
+  .cta-image-wrapper {
+    flex: 1 1 100%;
+  }
+
+  /* Team */
+  .team-grid-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Navbar */
+  /* .nav-links {
+    display: none;
+  } */
+  .nav-cta {
+    position: static;
+    margin: 20px 0 0 0;
+    text-align: center;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  /* Accordion */
+  .list-item {
+    padding: 20px 24px;
+  }
+
+  .item-number {
+    font-size: 32px;
+  }
+
+  .item-text {
+    font-size: 18px;
+  }
+
+  /* Team */
+  .team-grid-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    flex: 0 0 85%;
+    min-width: 85%;
+  }
+
+  /* Contact */
+  .contact-form-container {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .contact-illustration {
+    position: static;
+    max-width: 100%;
+    margin-top: -750px;
+  }
+
+  /* Footer */
+  .footer {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .footer-top,
+  .footer-middle,
+  .footer-bottom {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .services-tag,
+  .label-highlight,
+  .bg-lime,
+  .team-label,
+  .contact-label {
+    font-size: 22px;
+  }
+
+  .bg-lime {
+    max-width: 110px;
+  }
+
+  @media (max-width: 480px) {
+    .service-card {
+      max-width: 100%;
+      /* Let it fill the screen */
+      margin-left: 0;
+      padding: 30px;
+      flex-direction: column;
+      /* Stack image and text */
+      align-items: center;
+    }
+
+    .card-img {
+      margin-left: 0;
+      /* Reset this */
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .card-img img {
+      width: 140px;
+      /* Scale down the image slightly */
+    }
+  }
+
+  .card-info {
+    margin-left: -22%;
+  }
+
+  .brand-container {
+    max-width: 300px;
+    margin: 0%;
+    margin-left: 9%;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .services-grid {
+    max-width: 1000px;
+  }
+
+  .cta-container {
+    padding: 30px 20px;
+    max-width: 285px;
+    margin-left: -3%;
+  }
+
+  .description {
+    max-width: 145px;
+    margin-left: -5%;
+  }
+
+  .item-text {
+    max-width: 150px;
+    font-size: 13px;
+  }
+
+  .footer-btn-container {
+    margin-left: -15%;
+  }
+
+  .badge {
+    font-size: 18px;
+  }
+
+  .section-header {
+    margin-left: 10%;
+  }
+
+  .team-card {
+    max-width: 360px;
+    margin-left: 2%;
+  }
+
+  .list-item {
+    max-width: 340px;
+    margin-left: 20px;
+  }
+
+  .team-header-container {
+    max-width: 355px;
+    margin-left: 5%;
+    margin-top: 0px;
+  }
+
+  .item-number {
+    font-size: 23px;
+  }
+
+  .header-flex {
+    margin-left: 2px;
+    margin-top: 40px;
+    margin-bottom: 65px;
+  }
+
+  .services-tag {
+    margin-bottom: 15px;
+  }
+
+  .learn-more {
+    margin-top: 230px;
+  }
+
+  .bubble {
+    padding: 25px;
+    font-size: 16px;
+  }
+
+  .nav-controls {
+    gap: 0px;
+  }
+
+  .contact-header-container {
+    margin-left: 10%;
+  }
+
+  .testimonial-section {
+    max-width: 350px;
+    margin-left: 3%;
+    border-radius: 25px 25px;
+  }
+
+  .contact-text {
+    font-size: 15px;
+    margin-bottom: 8px;
+    max-width: 210px;
+  }
+
+  .newsletter-box {
+    display: flex;
+    flex-direction: column;
+    margin-left: -12%;
+  }
+
+  .contact-label {
+    font-size: 22px;
+    height: 60px;
+    border-radius: 10px 10px;
+    max-width: 95px;
+  }
+
+  .footer-nav {
+    margin-left: 64px;
+  }
+
+  #fotsnav {
+    margin-left: -8px;
+  }
+
+  .contact-form-container {
+    max-width: 360px;
+    margin-left: 2%;
+  }
+
+  .footer {
+    max-width: 300px;
+    margin-left: -5.5%;
+  }
+}
+
+
+@media only screen and (min-device-width: 430px) and (max-device-width: 430px) and (-webkit-min-device-pixel-ratio: 3) {
+
+  .footer {
+    width: 100% !important;
+    max-width: 390px !important;
+    /* Leaves a little breathing room on the 430px screen */
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media only screen and (min-width: 912px) and (max-width: 912px) {
+  .footer{
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+@media only screen and (min-width: 540px) and (max-width: 540px) {
+  .footer-nav{
+    margin-left: -9%;
+  }
+}
+@media only screen and (min-width: 820px) and (max-width: 820px) {
+  .footer {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .quote-btn {
+    position: absolute;
+    margin-left: -20%;
+    margin-top: 5%;
+  }
+
+  .nav-links {
+    margin-right: 84px;
+  }
+
+  .social-icons {
+    position: absolute;
+    margin-left: 66%;
+    margin-top: 12%;
+  }
+}
+
+@media only screen and (min-width: 412px) and (max-width: 412px) {
+  .footer {
+    width: 92% !important;
+    /* Leaves consistent side gutters */
+    max-width: 380px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* 1. Global Reset for Mobile */
+  .container,
+  .hero-container,
+  .services-container,
+  .cta-section,
+  .contact-form-wrapper {
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* 2. Hero Section */
+  .hero-content {
+    margin: 0;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-visual img {
+    margin: 20px 0;
+    max-width: 80%;
+  }
+
+  /* 3. Service Cards (The most important fix) */
+  .services-grid {
+    padding: 0 15px;
+    gap: 20px;
+  }
+
+  .service-card {
+    flex-direction: column;
+    padding: 40px 25px;
+    max-width: 100%;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-info {
+    margin: 0;
+    width: 100%;
+  }
+
+  .card-img {
+    margin: 30px 0 0 0;
+    order: 2;
+    /* Put image below text */
+  }
+
+  .card-img img {
+    width: 140px;
+  }
+
+  .learn-more {
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  /* 4. CTA Section */
+  .cta-container {
+    padding: 40px 20px;
+    max-width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .cta-image-wrapper {
+    display: none;
+  }
+
+  /* Hide illustration on tiny screens to save space */
+
+  /* 5. Process / Accordion */
+  .list-item {
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .item-text {
+    font-size: 16px;
+    max-width: 180px;
+  }
+
+  .item-number {
+    font-size: 24px;
+  }
+
+  /* 6. Team Section */
+  .team-grid-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-card {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* 7. Testimonials (Carousel Fix) */
+  .testimonial-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+
+  .bubble {
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+
+  .nav-controls {
+    gap: 10px;
+  }
+
+  /* 8. Contact Form */
+  .contact-form-container {
+    padding: 30px 15px;
+  }
+
+  .form-content {
+    flex: 0 0 100%;
+  }
+
+  .form-visual {
+    display: none;
+  }
+
+  /* Hide the illustration that was causing the -750px margin issue */
+
+  /* 9. Footer */
+  .footer {
+    width: 100%;
+    margin: 0;
+    padding: 40px 15px;
+    border-radius: 25px;
+    max-width: 350px;
+  }
+
+  .newsletter-box {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .newsletter-box input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Container needs to be full width with no overflow hidden on the track itself */
+  .testimonial-section {
+    border-radius: 0;
+    /* Square edges look better on tiny screens */
+    padding: 40px 10px;
+    border-radius: 25px 25px;
+  }
+
+  /* Change card width to 90-100% so the user sees one full card */
+  .testimonial-card {
+    flex: 0 0 90%;
+    min-width: 90%;
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+
+  .testimonial-card.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Adjust the bubble padding so text doesn't hit the edges */
+  .bubble {
+    padding: 25px;
+    font-size: 15px;
+    border-radius: 30px;
+  }
+
+  /* Fix the speech bubble tail position */
+  .bubble::after {
+    left: 40px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .author {
+    padding-left: 45px;
+    /* Aligns with the tail */
+  }
+
+  /* Spread the controls out */
+  .nav-controls {
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    flex: 0 0 100%;
+    /* Full screen width on very small phones */
+    min-width: 100%;
+  }
+
+  .nav-controls {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-track {
+    gap: 20px;
+    /* This must match the JS gap variable */
+  }
+}

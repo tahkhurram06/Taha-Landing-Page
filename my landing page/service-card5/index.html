@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Creation | Positivus</title>
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; overflow-x: hidden; font-family: inherit; }
+
+    .service-hero {
+      padding: 120px 20px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-hero .tag {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      background: #e6f5ef;
+      color: #1f7a5f;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .service-hero p {
+      max-width: 760px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .service-detail {
+      max-width: 1200px;
+      margin: 0 auto 120px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .service-text { flex: 1; }
+    .service-text h2 { margin-bottom: 12px; }
+    .service-text p { margin-bottom: 20px; line-height: 1.7; }
+    .service-text ul { padding-left: 18px; line-height: 1.8; }
+
+    .service-image {
+      flex: 1.2;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .service-image img {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      border-radius: 26px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-22px); }
+      100% { transform: translateY(0); }
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 36px;
+      padding: 14px 28px;
+      border-radius: 40px;
+      background: #191a23;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .back-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); }
+
+    @media (max-width: 1024px) { .service-detail { gap: 40px; } .service-image img { max-width: 480px; } }
+    @media (max-width: 768px) { .service-detail { flex-direction: column; gap: 40px; } .service-image { justify-content: center; } .service-image img { max-width: 100%; animation-duration: 5s; } .service-hero { padding-top: 100px; } }
+    @media (max-width: 480px) { .service-hero p { font-size: 16px; } .back-btn { width: 100%; text-align: center; } }
+  </style>
+</head>
+
+<body>
+
+  <section class="service-hero">
+    <span class="tag">Content Creation</span>
+    <p>
+      Content Creation that captivates your audience and strengthens your brand presence online.
+    </p>
+  </section>
+
+  <section class="service-detail">
+    <div class="service-text">
+      <h2>What we do</h2>
+      <p>
+        We produce high-quality content tailored to your brand, including articles, graphics, videos, and more.
+      </p>
+
+      <h2>What’s included</h2>
+      <ul>
+        <li>Blog & article writing</li>
+        <li>Graphic design & visuals</li>
+        <li>Video content production</li>
+        <li>SEO-optimized content</li>
+        <li>Content strategy & planning</li>
+      </ul>
+
+      <a href="../index.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <div class="service-image">
+      <img src="/card5.png" alt="Content creation illustration" />
+    </div>
+  </section>
+
+</body>
+</html>

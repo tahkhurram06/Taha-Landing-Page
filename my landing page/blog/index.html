@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Positivus</title>
+    <link rel="stylesheet" href="/styles.css">
+    
+    <style>
+        /* --- UPDATED BLOG STYLES --- */
+        .featured-post {
+            display: flex;
+            background: #f3f3f3;
+            border: 1px solid #000;
+            border-bottom: 6px solid #000;
+            border-radius: 45px;
+            overflow: hidden;
+            margin-top: 50px;
+            margin-bottom: 80px;
+        }
+
+        .featured-img { flex: 1; }
+        .featured-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .featured-content {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category-tag {
+            background: #b9ff66;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            width: fit-content;
+            margin-bottom: 20px;
+        }
+
+        .featured-content h2 { font-size: 36px; margin-bottom: 20px; }
+        
+        .article-description, .card-body p {
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            transition: all 0.4s ease;
+        }
+
+        .more-text {
+            display: none; 
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .read-more {
+            font-weight: bold;
+            text-decoration: none;
+            color: #191a23;
+            cursor: pointer;
+            display: inline-block;
+            border-bottom: 2px solid #b9ff66;
+            width: fit-content;
+        }
+
+        .post-meta { color: #888; font-size: 14px; margin-bottom: 20px; }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .blog-card {
+            border: 1px solid #000;
+            border-bottom: 6px solid #000;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #000; }
+        .card-body { padding: 30px; flex-grow: 1; }
+        .card-body h3 { margin: 15px 0; font-size: 22px; }
+
+        /* --- HAMBURGER & NAV QUERIES --- */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #000;
+            border-radius: 2px;
+            transition: 0.3s ease;
+        }
+
+        /* Animation for Hamburger to X */
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                flex-direction: column;
+                background: #191a23;
+                padding: 100px 0;
+                width: 250px;
+                height: 100vh;
+                gap: 25px;
+                transition: 0.4s ease;
+                z-index: 1000;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active { right: 0; }
+
+            .nav-links li a { color: #fff; font-size: 20px; }
+
+            .quote-btn {
+                display: none; /* Hide main button on mobile to clean up header */
+            }
+
+            .hamburger { display: flex; }
+        }
+
+        @media (max-width: 992px) {
+            .featured-post { flex-direction: column; }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .featured-img img { height: 320px; }
+        }
+
+        @media (max-width: 600px) {
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 1400px) {
+            .container { max-width: 1200px; margin: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-container" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%;">
+        <div class="nav-logo">
+            <a href="/index.html"><img src="/logo.png" alt="logo" class="logo-placeholder"></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/service/index.html">Services</a></li>
+            <li><a href="/teamcardfolder/index.html">Team</a></li>
+        </ul>
+        <a href="/proposal/index.html" class="quote-btn" >Contact Us</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="header-flex" style="margin-top: 60px;">
+            <h1 class="bg-lime" style="display: inline-block; background: #b9ff66; padding: 0 10px;">Our Blog</h1>
+            <p class="description">Insights and strategies to stay ahead in digital marketing.</p>
+        </div>
+
+        <div class="featured-post">
+            <div class="featured-img">
+                <img src="/ai-market-img.webp" alt="AI Marketing">
+            </div>
+            <div class="featured-content">
+                <span class="category-tag">Strategy</span>
+                <h2>The Future of AI in Digital Marketing: 2026</h2>
+                <p class="article-description">
+                    Artificial Intelligence is no longer a buzzword; it's a core component of successful marketing strategies. We explore how generative AI is changing search intent...
+                    <span class="more-text">
+                        In 2026, hyper-personalization is king. By using advanced LLMs, companies can now predict customer needs before they even search. This shift from reactive to proactive marketing is saving brands millions in ad spend while increasing conversion by 40%.
+                    </span>
+                </p>
+                <div class="post-meta"><span>Jan 13, 2026</span> • <span>5 min read</span></div>
+                <a href="javascript:void(0)" class="read-more toggle-btn">Read Full Article →</a>
+            </div>
+        </div>
+
+        <div class="blog-grid">
+            <article class="blog-card">
+                <img src="/top10 tipx.png" alt="SEO" class="card-img">
+                <div class="card-body">
+                    <span class="category-tag">SEO</span>
+                    <h3>10 SEO Tips for 2026</h3>
+                    <p>
+                        Improve your local search rankings with these techniques.
+                        <span class="more-text">Focus on Zero-click searches and voice optimization. Ensure your schema markup is up to date to appear in AI-generated snippets.</span>
+                    </p>
+                    <a href="javascript:void(0)" class="read-more toggle-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="/video content.png" alt="Social" class="card-img">
+                <div class="card-body">
+                    <span class="category-tag">Social</span>
+                    <h3>Mastering Video Content</h3>
+                    <p>
+                        How to create Reels that actually convert.
+                        <span class="more-text">Use the first 3 seconds as a hook. Native captioning and high-contrast visuals are essential for muted autoplay feeds.</span>
+                    </p>
+                    <a href="javascript:void(0)" class="read-more toggle-btn">Read More</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <img src="/google sectre.jpg" alt="PPC" class="card-img">
+                <div class="card-body">
+                    <span class="category-tag">PPC</span>
+                    <h3>Google Ads Secrets</h3>
+                    <p>
+                        Common mistakes businesses make with bidding.
+                        <span class="more-text">Avoid broad match keywords without a solid negative keyword list. Switch to value-based bidding for better ROI.</span>
+                    </p>
+                    <a href="javascript:void(0)" class="read-more toggle-btn">Read More</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        /* -------- Read More Toggle -------- */
+        const buttons = document.querySelectorAll('.toggle-btn');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const parent = this.parentElement;
+                const moreText = parent.querySelector('.more-text');
+
+                if (!moreText) return;
+
+                if (moreText.style.display === "" || moreText.style.display === "none") {
+                    moreText.style.display = "inline";
+                    setTimeout(() => moreText.style.opacity = "1", 10);
+                    this.innerText = "Show Less ←";
+                } else {
+                    moreText.style.opacity = "0";
+                    setTimeout(() => moreText.style.display = "none", 400);
+                    this.innerText = parent.classList.contains('featured-content')
+                        ? "Read Full Article →"
+                        : "Read More";
+                }
+            });
+        });
+
+        /* -------- Hamburger Menu -------- */
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active'); // Added this to trigger the 'X' animation
+            });
+        }
+    });
+    </script>
+
+</body>
+</html>
